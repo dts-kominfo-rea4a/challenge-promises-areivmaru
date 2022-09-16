@@ -6,20 +6,15 @@ const { promiseTheaterIXX, promiseTheaterVGC } = require("./external.js");
 async function promiseOutput(hasil2) {
   const result = await promiseTheaterIXX();
   const result2 = await promiseTheaterVGC();
+  const merge = result.concat(result2);
 
   let i = 0;
-  for (let index = 0; index < result.length; index++) {
-    if (result[index].hasil == hasil2) {
-      i ++;
+  for (let index = 0; index < merge.length; index++) {
+    if (merge[index].hasil == hasil2) {
+      i++;
     }
   }
-  for (let index = 0; index < result2.length; index++) {
-    if (result2[index].hasil == hasil2) {
-      i ++;
-    }
-  }
-
-  return i
+  return i;
 }
 module.exports = {
   promiseOutput,
